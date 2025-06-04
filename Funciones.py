@@ -2,16 +2,18 @@
 
 class Funciones: 
     
-    def __init__(self):
+    def __init__(self): 
         self.lista = []
 
         
-    def __str__(self):
-        return f"{self.lista}"
+    def __str__(self): 
+        contador = ""
+        for i in self.lista:
+            contador += f'{i}\n'
+        return contador
     
 
     def añadir_tarea(self, estado = "Pendiente"):
-        self.lista = []
         evento = input("Introduzca evento: ")
         dia = input("Seleccione la fecha: ")
         hora = input("Seleccione la hora del evento: ")
@@ -28,6 +30,18 @@ class Funciones:
         return 
     
     
+    def modificar_tarea(self): 
+        tarea_modificada = input("Introduzca la tarea que se desea modificar: ")
+        for i in self.lista:
+            if i["Evento"] == tarea_modificada:
+                return
+            else:
+                return f'No se han encontrado tareas por {tarea_modificada}'
+            return    
+    
+    
+    
+    
     def eliminar_tarea(self):
         tarea_eliminada = input('Introduzca el evento que desea eliminar. Si no desea eliminar ninguna tarea escriba "Salir": ')
         for i in self.lista:
@@ -38,7 +52,7 @@ class Funciones:
                 break
             else:
                 return f"No se han encontrados tareas por: {tarea_eliminada}"
-            return self.lista    
+            return    
         
     
     def completar_tarea(self):
